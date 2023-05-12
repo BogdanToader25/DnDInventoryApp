@@ -8,22 +8,27 @@ using Microsoft.EntityFrameworkCore;
 using DnDInventoryApp.Data;
 using DnDInventoryApp.Repositories;
 using DnDInventoryApp.Models;
+using DnDInventoryApp.Services;
 
 namespace DnDInventoryApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IUserRepository _userRepository;
+        private readonly AccountService _accountService;
 
-        public AccountController(IUserRepository userRepository)
+        public AccountController(AccountService accountService)
         {
-            _userRepository = userRepository;
+            _accountService = accountService;
         }
 
-        //public IActionResult Login(LoginModel userInfo)
-        //{
-            
-        //}
+        public IActionResult Login(LoginModel userInfo)
+        {
+            if(_accountService.LoginUser(userInfo))
+            {
+                return View();
+            }
+            return View();
+        }
 
     }
 }

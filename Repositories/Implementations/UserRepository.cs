@@ -28,7 +28,7 @@ namespace DnDInventoryApp.Repositories.Implementations
 
         public AppUser Get(int id)
         {
-            return _context.AppUsers.Where(x => x.UserId == id).FirstOrDefault();
+            return _context.AppUsers.FirstOrDefault(x => x.UserId == id);
         }
 
         public IEnumerable<AppUser> GetAll()
@@ -38,7 +38,7 @@ namespace DnDInventoryApp.Repositories.Implementations
 
         public AppUser GetByUsername(string username)
         {
-            return _context.AppUsers.Where(x => x.Username == username).FirstOrDefault();
+            return _context.AppUsers.FirstOrDefault(x => x.Username == username);
         }
     }
 }

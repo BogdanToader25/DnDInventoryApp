@@ -1,4 +1,6 @@
-﻿namespace DnDInventoryApp.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DnDInventoryApp.Data
 {
     public class AppUser
     {

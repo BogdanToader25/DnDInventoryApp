@@ -13,8 +13,9 @@ namespace DnDInventoryApp.Data
         {
             modelBuilder.Entity<AppUser>(entity =>
             {
-                entity.HasKey(e => e.UserId);
+                entity.HasKey(e => e.UserId);               
                 entity.Property(e => e.UserId);
+                entity.HasIndex(e => e.Username).IsUnique();
                 entity.Property(e => e.Username).HasMaxLength(250);
                 entity.Property(e => e.Password).HasMaxLength(250);
                 entity.Property(e => e.Roles).HasMaxLength(1000);               
